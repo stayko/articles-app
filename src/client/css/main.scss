@@ -1,0 +1,43 @@
+body {
+  background-color: gray;
+  font-family: arial;
+}
+
+h1 {
+  color: black;
+  margin: 0 0 20px 0;
+  font-size: 36px;
+}
+
+h2 {
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.app {
+   display: flex;
+}
+
+.article-list {
+  flex: 0 0 450px;
+  margin-right: 30px;
+}
+
+article.article-list-item {
+  display: flex;
+
+  figure.list-item-figure{
+    flex: 0 0 120px;
+  }
+
+  div.list-item-text {
+    flex: auto;
+  }
+}
+
+.article-view {
+  flex: 1;
+}
