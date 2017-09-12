@@ -4,10 +4,6 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
 class ArticleListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return <NavLink className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
               <article className="article-list-item">
