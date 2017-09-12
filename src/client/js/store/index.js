@@ -1,11 +1,14 @@
-import {applyMiddleware, createStore}  from "redux";
-
-//middlewares
+import { applyMiddleware, createStore, compose }  from "redux";
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 import reducers from "../reducers";
 
 const middleware = applyMiddleware(thunk, createLogger());
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f,
+  middleware
+);
+
 const initialState = {
   articles: [
     {
@@ -23,4 +26,5 @@ const initialState = {
   ]
 }
 
-export default createStore(reducers, initialState, middleware);
+const store = createStore(reducers, initialState, enhancers);
+export default store;

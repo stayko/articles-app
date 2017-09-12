@@ -1,5 +1,5 @@
 body {
-  background-color: gray;
+  background-color: white;
   font-family: arial;
 }
 
@@ -17,13 +17,34 @@ figure {
   margin: 0;
 }
 
+button {
+  border: 2px solid black;
+  padding:5px;
+  cursor: pointer;
+  background: none;
+  font-size:14px;
+}
+
 .app {
    display: flex;
+}
+
+.article-link {
+  text-decoration: none;
+  display: block;
+}
+
+.comments-number {
+  text-decoration: underline;
 }
 
 .article-list {
   flex: 0 0 450px;
   margin-right: 30px;
+}
+
+a.active > article.article-list-item {
+    background-color: #eee;
 }
 
 article.article-list-item {

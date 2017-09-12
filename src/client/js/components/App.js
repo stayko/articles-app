@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ArticlesList from './ArticlesList';
+import ContainerArticlesList from './ContainerArticlesList';
 import ArticleView from './ArticleView';
 import { Route } from 'react-router-dom'
 
@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render() {
     return  <div className="app">
-              <ArticlesList />
+              <ContainerArticlesList />
               <Route path="/view/:id" component={ArticleView}/>
             </div>
   }

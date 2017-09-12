@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class ArticleListItem extends React.Component {
   constructor(props) {
@@ -9,31 +9,33 @@ class ArticleListItem extends React.Component {
   }
 
   render() {
-    return <Link to="/view/1">
+    return <NavLink className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
               <article className="article-list-item">
                   <figure className="list-item-figure"><img src={this.props.imageUrl} /></figure>
                   <div className="list-item-text">
                     <h2>{this.props.title}</h2>
                     <p>{this.props.text}</p>
-                    <p>{this.props.comments} comments</p>
+                    <p className="comments-number">{this.props.comments.length} comments</p>
                   </div>
                </article>
-           </Link>
+           </NavLink>
   }
 }
 
 ArticleListItem.defaultProps = {
+  id: 1,
   imageUrl: "http://via.placeholder.com/100x100",
   title: "This is a title",
   text: "This is text",
-  comments: 0
+  comments: []
 };
 
 ArticleListItem.propTypes = {
+  id: PropTypes.number,
   imageUrl: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
-  comments: PropTypes.number
+  comments: PropTypes.array
 }
 
 export default ArticleListItem;
