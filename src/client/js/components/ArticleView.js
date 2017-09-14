@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 class ArticleView extends React.Component {
   render() {
-
-    const { articleId } = this.props.match.params;
-    const { title, imageUrl, text } = this.props.articles[articleId];
-
-    return  <section className="article-view">
+    const { title, imageUrl, text } = this.props.article;
+    return  <article className="article-view">
               <h2>{title}</h2>
-              <div><img src={imageUrl} /></div>
+              <figure><img src={imageUrl} /></figure>
               <div>{text}</div>
-            </section>
+            </article>
   }
 }
 

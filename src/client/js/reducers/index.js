@@ -1,6 +1,9 @@
 import { combineReducers } from "redux";
-import { articles } from "./articlesReducer";
+import { articles, isFetching } from "./articlesReducer";
+import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
-  articles
+  articles,
+  isFetching,
+  router: routerReducer
 })

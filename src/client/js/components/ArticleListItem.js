@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { truncate } from '../utils'
 
 class ArticleListItem extends React.Component {
   render() {
@@ -9,8 +10,8 @@ class ArticleListItem extends React.Component {
               <article className="article-list-item">
                   <figure className="list-item-figure"><img src={this.props.imageUrl} /></figure>
                   <div className="list-item-text">
-                    <h2>{this.props.title}</h2>
-                    <p>{this.props.text}</p>
+                    <h3>{this.props.title}</h3>
+                    <p>{truncate(this.props.text, 20)}</p>
                     <p className="comments-number">{this.props.comments.length} comments</p>
                   </div>
                </article>

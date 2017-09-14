@@ -2,15 +2,15 @@ import '../css/main.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App'
-import { BrowserRouter } from 'react-router-dom'
+import { ConnectedRouter } from 'react-router-redux'
 import { Provider } from 'react-redux';
-import store from './store'
+import store, { history } from './store'
 
 const root = document.getElementById('root')
 render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
+    <ConnectedRouter history={history}>
+        <App/>
+    </ConnectedRouter>
   </Provider>,
 root);
