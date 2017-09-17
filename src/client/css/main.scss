@@ -31,7 +31,7 @@ figure {
 }
 
 .article-list {
-  flex: 0 0 450px;
+  flex: 0 0 400px;
   margin-right: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -58,12 +58,15 @@ article.article-list-item {
   }
 }
 
-.article-view {
-  flex: 1;
-  figure {
-    img {
-      max-width: 100%;
-      max-height: 400px;
+section.view-section {
+  flex: 0 1 600px;
+  .article-view {
+    margin-bottom: 25px;
+    figure {
+      img {
+        max-width: 100%;
+        /* max-height: 400px; */
+      }
     }
   }
 }

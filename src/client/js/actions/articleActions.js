@@ -1,16 +1,15 @@
 const api = require('../../../api');
-export const LOAD_ARTICLES_START = 'LOAD_ARTICLES_START';
-export const LOAD_ARTICLES_COMPLETE = 'LOAD_ARTICLES_COMPLETE';
+import * as actionTypes from './actionConstants';
 
-export function loadArticlesStart(){
+function loadArticlesStart(){
   return {
-    type: LOAD_ARTICLES_START
+    type: actionTypes.LOAD_ARTICLES_START
   }
 }
 
-export function loadArticlesComplete(data) {
+function loadArticlesComplete(data) {
   return {
-    type: LOAD_ARTICLES_COMPLETE,
+    type: actionTypes.LOAD_ARTICLES_COMPLETE,
     data
   }
 }
@@ -20,6 +19,8 @@ export function loadArticles(offset, limit){
     dispatch(loadArticlesStart());
     api.loadArticles({ offset, limit }).then((result) => {
       dispatch(loadArticlesComplete(result.data));
+    }).catch(error => {
+      throw new Error(error);
     });
   }
 }

@@ -1,9 +1,12 @@
 import { combineReducers } from "redux";
-import { articles, isFetching } from "./articlesReducer";
+import { articles, isFetchingArticles } from "./articlesReducer";
+import { comments, isFetchingComments } from "./commentsReducer";
 import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
   articles,
-  isFetching,
+  comments,
+  isFetchingArticles,
+  isFetchingComments,
   router: routerReducer
 })

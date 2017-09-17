@@ -1,18 +1,19 @@
-import { LOAD_ARTICLES_START, LOAD_ARTICLES_COMPLETE } from '../actions/actionCreators';
+import * as actionTypes from '../actions/actionConstants';
+import initialState from '../reducers/initialState';
 
-export function articles(state=[], action){
+export function articles(state = initialState.articles, action){
   switch (action.type){
-    case LOAD_ARTICLES_COMPLETE:
+    case actionTypes.LOAD_ARTICLES_COMPLETE:
       return state.concat(action.data);
   }
   return state;
 }
 
-export function isFetching(state = false, action){
+export function isFetchingArticles(state = initialState.isFetchingArticles, action){
   switch (action.type){
-    case LOAD_ARTICLES_START:
+    case actionTypes.LOAD_ARTICLES_START:
       return true;
-    case LOAD_ARTICLES_COMPLETE:
+    case actionTypes.LOAD_ARTICLES_COMPLETE:
       return false
   }
   return state;

@@ -5,14 +5,24 @@ import { NavLink } from 'react-router-dom'
 import { truncate } from '../utils'
 
 class ArticleListItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
+  clickHandler(){
+    this.props.actions.loadComments(this.props.id);
+  }
+
   render() {
-    return <NavLink className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
+    return <NavLink onClick={this.clickHandler} className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
               <article className="article-list-item">
                   <figure className="list-item-figure"><img src={this.props.imageUrl} /></figure>
                   <div className="list-item-text">
                     <h3>{this.props.title}</h3>
                     <p>{truncate(this.props.text, 20)}</p>
-                    <p className="comments-number">{this.props.comments.length} comments</p>
+                    <p className="comments-number">{this.props.commentsCount} comments</p>
                   </div>
                </article>
            </NavLink>
@@ -24,7 +34,7 @@ ArticleListItem.defaultProps = {
   imageUrl: "http://via.placeholder.com/100x100",
   title: "This is a title",
   text: "This is text",
-  comments: []
+  commentsCount: PropTypes.number
 };
 
 ArticleListItem.propTypes = {
@@ -32,7 +42,7 @@ ArticleListItem.propTypes = {
   imageUrl: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
-  comments: PropTypes.array
+  commentsCount: PropTypes.number
 }
 
 export default ArticleListItem;

@@ -1,17 +1,19 @@
 import { connect } from 'react-redux'
-import { loadArticles } from '../actions/actionCreators'
+import * as articleActions from '../actions/articleActions'
 import { bindActionCreators } from 'redux'
 import ArticlesList from '../components/ArticlesList';
 
 const mapStateToProps = state => {
   return {
     articles: state.articles,
-    isFetching: state.isFetching
+    isFetchingArticles: state.isFetchingArticles
   }
 }
 
 const mapDispatchToProps = dispatch => {
-   return bindActionCreators({ loadArticles }, dispatch)
+   return {
+     actions: bindActionCreators(articleActions, dispatch)
+   }
 }
 
 const ArticlesContainer = connect(

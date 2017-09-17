@@ -14,7 +14,7 @@ exports.loadArticles = function(paging) {
   const articles = db.find('articles', {}, paging);
   const totalCount = db.count('articles', {});
 
-  articles.forEach((article) => {
+  articles.forEach((article, i) => {
     article.commentsCount = db.count('comments', { articleId: article.id });
   });
 
@@ -54,6 +54,7 @@ exports.addComment = function({ text, articleId, parentCommentId = null }) {
     author: '[me]',
     repliesCount: 0,
   };
+  
   const insertedComment = db.insert('comments', comment);
 
   return delayedPromise({ data: insertedComment });

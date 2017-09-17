@@ -1,23 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ArticleListItem from './ArticleListItem';
+import ArticleItemContainer from '../containers/ArticleItemContainer';
 import Spinner from './Spinner';
 import LoadingButton from './LoadingButton';
 
 class ArticleList extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
   componentDidMount() {
-    this.props.loadArticles(0,4);
+    this.props.actions.loadArticles(0,4);
+  }
+
+  articleRow(article, i){
+    return (
+      <ArticleItemContainer location={location.pathname} key={i} id={article.id} title={article.title} text={article.text} imageUrl={article.imageUrl} commentsCount={article.commentsCount} />
+    );
+  }
+
+  clickHandler(){
+    this.props.actions.loadArticles(this.props.articles.length,4);
   }
 
   render() {
-    const { articles, isFetching } = this.props;
+    const { articles, isFetchingArticles } = this.props;
     return <div className="article-list">
               <h1>Articles List</h1>
               <section>
-                {articles.length === 0 ? <Spinner /> : articles.map((article, i)=>(<ArticleListItem key={i} id={i} title={article.title} text={article.text} imageUrl={article.imageUrl} />))}
+                {articles.length === 0 ? <Spinner /> : articles.map(this.articleRow)}
               </section>
-              {articles.length > 0 ? <LoadingButton isLoading={isFetching} clickHandler={()=>{this.props.loadArticles(articles.length,4)}}  /> : ''}
+              {articles.length > 0 && <LoadingButton isLoading={isFetchingArticles} clickHandler={this.clickHandler} />}
             </div>;
   }
 }

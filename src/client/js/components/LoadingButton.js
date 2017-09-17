@@ -9,15 +9,15 @@ class LoadingButton extends React.Component {
     const loadingElement = <span className="loading">Loading</span>
     const { clickHandler, isLoading } = this.props;
 
-    return  <button onClick={()=>{clickHandler()}}>
+    return  <button disabled={isLoading ? true : false} onClick={()=>{clickHandler()}}>
               {isLoading ? loadingElement : 'Load Next'}
             </button>
   }
 }
 
 LoadingButton.propTypes = {
-  isLoading: PropTypes.bool,
-  clickHandler: PropTypes.func
+  isLoading: PropTypes.bool.isRequired,
+  clickHandler: PropTypes.func.isRequired
 }
 
 export default LoadingButton;
