@@ -8,7 +8,6 @@ function insertComments(db, articleId, comments, parentCommentId) {
       parentCommentId,
       articleId,
     });
-
     if (replies) {
       insertComments(db, articleId, replies, lastCommentId);
     }

@@ -15,17 +15,32 @@ class ArticleListItem extends React.Component {
     this.props.actions.loadComments(this.props.id);
   }
 
+  getArticle(){
+    return (
+      <article className="article-list-item">
+          <figure className="list-item-figure"><img src={this.props.imageUrl} /></figure>
+          <div className="list-item-text">
+            <h3>{this.props.title}</h3>
+            <p>{truncate(this.props.text, 20)}</p>
+            <p className="comments-number">{this.props.commentsCount} comments</p>
+          </div>
+       </article>
+    )
+  }
+
   render() {
-    return <NavLink onClick={this.clickHandler} className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
-              <article className="article-list-item">
-                  <figure className="list-item-figure"><img src={this.props.imageUrl} /></figure>
-                  <div className="list-item-text">
-                    <h3>{this.props.title}</h3>
-                    <p>{truncate(this.props.text, 20)}</p>
-                    <p className="comments-number">{this.props.commentsCount} comments</p>
-                  </div>
-               </article>
-           </NavLink>
+    const pathname = window.location.pathname;
+    const isCurrent = pathname!="/" && pathname.split('/')[2] == this.props.id;
+
+    if(isCurrent){
+      return <div className="article-link active">
+                  {this.getArticle()}
+              </div>
+    } else {
+      return <NavLink onClick={this.clickHandler} className="article-link" activeClassName="active" to={`/view/${this.props.id}`}>
+                {this.getArticle()}
+             </NavLink>
+    }
   }
 }
 

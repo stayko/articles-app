@@ -54,7 +54,7 @@ exports.addComment = function({ text, articleId, parentCommentId = null }) {
     author: '[me]',
     repliesCount: 0,
   };
-  
+
   const insertedComment = db.insert('comments', comment);
 
   return delayedPromise({ data: insertedComment });

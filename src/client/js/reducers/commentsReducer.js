@@ -5,6 +5,8 @@ export function comments(state = initialState.comments, action){
   switch (action.type){
     case actionTypes.LOAD_COMMENTS_COMPLETE:
       return [...action.data];
+    case actionTypes.ADD_COMMENT_COMPLETE:
+      return [...state, Object.assign({}, action.data)];
   }
   return state;
 }

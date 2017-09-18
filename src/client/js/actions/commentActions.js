@@ -24,3 +24,27 @@ export function loadComments(articleId){
     });
   }
 }
+
+function addCommentStart(){
+  return {
+    type: actionTypes.ADD_COMMENT_START
+  }
+}
+
+function addCommentComplete(data){
+  return {
+    type: actionTypes.ADD_COMMENT_COMPLETE,
+    data
+  }
+}
+
+export function addComment(articleId, text){
+  return function(dispatch){
+    dispatch(addCommentStart());
+    api.addComment({ articleId, text }).then((result) => {
+      dispatch(addCommentComplete(result.data));
+    }).catch(error => {
+      throw new Error(error);
+    });
+  }
+}

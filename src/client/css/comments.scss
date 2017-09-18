@@ -19,3 +19,21 @@ $comment-text-size: 12px;
 .no-comments {
   font-size: $comment-text-size;
 }
+
+.comment-and-actions {
+  display: flex;
+
+  .comment-text{
+    flex: 0 0 340px;
+    margin-right: 10px;
+  }
+
+  .comment-replies {
+    flex: 0 0 65px;
+    margin-right: 10px;
+  }
+
+  .comment-button {
+
+  }
+}

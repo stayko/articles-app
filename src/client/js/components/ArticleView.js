@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import CommentForm from './CommentForm';
+import CommentFormContainer from '../containers/CommentFormContainer';
 import CommentsContainer from '../containers/CommentsContainer';
 
 class ArticleView extends React.Component {
@@ -15,7 +15,7 @@ class ArticleView extends React.Component {
                 <figure><img src={imageUrl} /></figure>
                 <div>{text}</div>
               </article>
-              <CommentForm />
+              <CommentFormContainer id={id} />
               <CommentsContainer />
             </section>
           );

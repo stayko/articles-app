@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {}
+  return {
+  }
 }
 
 const ViewContainer = connect(

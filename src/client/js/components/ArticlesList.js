@@ -28,12 +28,14 @@ class ArticleList extends React.Component {
   render() {
     const { articles, isFetchingArticles } = this.props;
     return <div className="article-list">
+            <div className="articles-holder">
               <h1>Articles List</h1>
               <section>
-                {articles.length === 0 ? <Spinner /> : articles.map(this.articleRow)}
+                {articles.length === 0 ? <Spinner /> : articles.map(this.articleRow, this)}
               </section>
               {articles.length > 0 && <LoadingButton isLoading={isFetchingArticles} clickHandler={this.clickHandler} />}
-            </div>;
+            </div>
+           </div>;
   }
 }
 

@@ -11,7 +11,11 @@ class CommentItem extends React.Component {
     return (
       <div className="comment-item">
         <div><strong>{comment.author}</strong>&nbsp;<em>{unixTimeToDate(comment.createdAt)}</em></div>
-        <div>{comment.text}</div>
+        <div className="comment-and-actions">
+          <div className="comment-text">{comment.text}</div>
+          <div className="comment-replies"><a href="#">{comment.repliesCount} replies</a></div>
+          <div className="comment-reply-button"><a href="#">reply</a></div>
+        </div>
       </div>
     )
   }

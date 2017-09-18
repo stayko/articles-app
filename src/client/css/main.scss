@@ -33,13 +33,20 @@ figure {
 .article-list {
   flex: 0 0 400px;
   margin-right: 30px;
+}
+
+.articles-holder {
+  height: auto;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 5px;
 }
 
-a.active > article.article-list-item {
-    background-color: #eee;
+.active {
+  cursor: default;
+  article.article-list-item {
+    background-color: #e0e7ff;
+  }
 }
 
 article.article-list-item {
