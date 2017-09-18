@@ -16,7 +16,17 @@ export function isFetchingComments(state = initialState.isFetchingComments, acti
     case actionTypes.LOAD_COMMENTS_START:
       return true;
     case actionTypes.LOAD_COMMENTS_COMPLETE:
-      return false
+      return false;
+  }
+  return state;
+}
+
+export function isAddingComment(state = initialState.isAddingComment, action){
+  switch (action.type){
+    case actionTypes.ADD_COMMENT_START:
+      return true;
+    case actionTypes.ADD_COMMENT_COMPLETE:
+      return false;
   }
   return state;
 }

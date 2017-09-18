@@ -4,7 +4,8 @@ import CommentsList from '../components/CommentsList';
 const mapStateToProps = state => {
   return {
     comments: state.comments,
-    isFetchingComments: state.isFetchingComments
+    isFetchingComments: state.isFetchingComments,
+    isAddingComment: state.isAddingComment
   }
 }
 

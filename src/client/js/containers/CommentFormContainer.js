@@ -5,6 +5,7 @@ import CommentForm from '../components/CommentForm';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    isAddingComment: state.isAddingComment
   }
 }
 

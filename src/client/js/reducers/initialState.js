@@ -2,5 +2,6 @@ export default {
   articles: [],
   comments: [],
   isFetchingArticles: false,
-  isFetchingComments: false
+  isFetchingComments: false,
+  isAddingComment: false
 }

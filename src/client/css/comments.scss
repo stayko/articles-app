@@ -8,6 +8,11 @@ $comment-text-size: 12px;
     width: 300px;
     height: 100px;
   }
+  textarea:disabled{
+    cursor: not-allowed;
+    background-color: #e4e4e4;
+  }
+
   margin-bottom: 20px;
 }
 

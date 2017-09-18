@@ -26,7 +26,8 @@ class CommentsList extends React.Component {
   render() {
     return (
       <div className="comments-list">
-        {this.getComments()}
+        <div>{this.getComments()}</div>
+        {this.props.isAddingComment && <Spinner />}
       </div>
     );
   }
