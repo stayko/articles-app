@@ -6,6 +6,21 @@ import '../../css/comments.scss';
 
 class CommentItem extends React.Component {
 
+  constructor() {
+    super();
+    this.viewReplies = this.viewReplies.bind(this);
+    this.reply = this.reply.bind(this);
+  }
+
+  viewReplies(e){
+    e.preventDefault();
+    console.log(this.props.comment.id);
+  }
+
+  reply(e){
+    e.preventDefault();
+  }
+
   render() {
     const {comment} = this.props;
     return (
@@ -13,8 +28,8 @@ class CommentItem extends React.Component {
         <div><strong>{comment.author}</strong>&nbsp;<em>{unixTimeToDate(comment.createdAt)}</em></div>
         <div className="comment-and-actions">
           <div className="comment-text">{comment.text}</div>
-          <div className="comment-replies"><a href="#">{comment.repliesCount} replies</a></div>
-          <div className="comment-reply-button"><a href="#">reply</a></div>
+          <div className="comment-replies"><a href="#" onClick={this.viewReplies}>{comment.repliesCount} replies</a></div>
+          <div className="comment-reply-button"><a href="#" onClick={this.reply}>reply</a></div>
         </div>
       </div>
     )

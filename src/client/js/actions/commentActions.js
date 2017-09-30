@@ -14,10 +14,10 @@ function loadCommentsComplete(data) {
   }
 }
 
-export function loadComments(articleId){
+export function loadComments(id){
   return function(dispatch){
     dispatch(loadCommentsStart());
-    api.loadComments({ articleId }).then((result) => {
+    api.loadComments(id).then((result) => {
       dispatch(loadCommentsComplete(result.data));
     }).catch(error => {
       throw new Error(error);
@@ -38,10 +38,10 @@ function addCommentComplete(data){
   }
 }
 
-export function addComment(articleId, text){
+export function addComment(commentData){
   return function(dispatch){
     dispatch(addCommentStart());
-    api.addComment({ articleId, text }).then((result) => {
+    api.addComment(commentData).then((result) => {
       dispatch(addCommentComplete(result.data));
     }).catch(error => {
       throw new Error(error);

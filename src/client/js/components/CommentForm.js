@@ -15,7 +15,7 @@ class CommentForm extends React.Component {
       e.preventDefault();
       const { id } = this.props;
       const comment = this.refs.commentArea.value;
-      this.props.actions.addComment(id, comment);
+      this.props.actions.addComment({articleId: id, text: comment});
       this.refs.commentForm.reset();
     }
   }

@@ -12,7 +12,7 @@ class ArticleListItem extends React.Component {
   }
 
   clickHandler(){
-    this.props.actions.loadComments(this.props.id);
+    this.props.actions.loadComments({articleId :this.props.id});
   }
 
   getArticle(){

@@ -6,8 +6,8 @@ import LoadingButton from './LoadingButton';
 
 class ArticleList extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.clickHandler = this.clickHandler.bind(this);
   }
 
